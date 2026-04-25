@@ -1,7 +1,8 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 
-function ProjectCard({ project, onOpenCaseStudy }) {
+const ProjectCard = memo(function ProjectCard({ project, onOpenCaseStudy }) {
   const MotionArticle = motion.article;
   const MotionButton = motion.button;
 
@@ -94,6 +95,6 @@ function ProjectCard({ project, onOpenCaseStudy }) {
       </div>
     </MotionArticle>
   );
-}
+});
 
 export default ProjectCard;

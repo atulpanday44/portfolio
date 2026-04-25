@@ -1,16 +1,18 @@
+import { lazy, Suspense } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import Experience from "./components/Experience";
-import ImpactExperience from "./components/ImpactExperience";
-import SystemDesign from "./components/SystemDesign";
-import AskAboutWork from "./components/AskAboutWork";
-import Contact from "./components/Contact";
-import Footer from "./components/Footer";
 import ScrollProgress from "./components/ScrollProgress";
-import AboutPortfolio from "./components/AboutPortfolio";
+
+// Lazy load below-the-fold components
+const Skills = lazy(() => import("./components/Skills"));
+const Projects = lazy(() => import("./components/Projects"));
+const Experience = lazy(() => import("./components/Experience"));
+const ImpactExperience = lazy(() => import("./components/ImpactExperience"));
+const SystemDesign = lazy(() => import("./components/SystemDesign"));
+const AskAboutWork = lazy(() => import("./components/AskAboutWork"));
+const Contact = lazy(() => import("./components/Contact"));
+const Footer = lazy(() => import("./components/Footer"));
 
 function App() {
   return (
@@ -20,15 +22,19 @@ function App() {
       <main className="mx-auto max-w-6xl px-6 pt-24 md:px-10">
         <Hero />
         <About />
-        <Skills />
-        <ImpactExperience />
-        <Projects />
-        <Experience />
-        <SystemDesign />
-        <AskAboutWork />
-        <Contact />
+        <Suspense fallback={null}>
+          <Skills />
+          <ImpactExperience />
+          <Projects />
+          <Experience />
+          <SystemDesign />
+          <AskAboutWork />
+          <Contact />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

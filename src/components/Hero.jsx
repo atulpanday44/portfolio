@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const container = {
@@ -35,6 +35,7 @@ function Hero() {
   const [titleIndex, setTitleIndex] = useState(0);
   const [spotlight, setSpotlight] = useState({ x: 50, y: 50 });
   const [parallax, setParallax] = useState({ x: 0, y: 0 });
+  const debounceTimeoutRef = useRef(null);
 
   useEffect(() => {
     const timer = window.setInterval(() => {
@@ -43,13 +44,27 @@ function Hero() {
     return () => window.clearInterval(timer);
   }, [rotatingTitles.length]);
 
-  const handlePointerMove = (event) => {
-    const bounds = event.currentTarget.getBoundingClientRect();
-    const x = ((event.clientX - bounds.left) / bounds.width) * 100;
-    const y = ((event.clientY - bounds.top) / bounds.height) * 100;
-    setSpotlight({ x, y });
-    setParallax({ x: (x - 50) / 18, y: (y - 50) / 18 });
-  };
+  const handlePointerMove = useCallback((event) => {
+    if (debounceTimeoutRef.current) {
+      clearTimeout(debounceTimeoutRef.current);
+    }
+
+    debounceTimeoutRef.current = setTimeout(() => {
+      const bounds = event.currentTarget.getBoundingClientRect();
+      const x = ((event.clientX - bounds.left) / bounds.width) * 100;
+      const y = ((event.clientY - bounds.top) / bounds.height) * 100;
+      setSpotlight({ x, y });
+      setParallax({ x: (x - 50) / 18, y: (y - 50) / 18 });
+    }, 8);
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (debounceTimeoutRef.current) {
+        clearTimeout(debounceTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const MotionSection = motion.section;
   const MotionP = motion.p;
@@ -68,16 +83,16 @@ function Hero() {
     >
       <div className="pointer-events-none absolute inset-0">
         <div
-          className="absolute inset-0 opacity-70 transition duration-300"
+          className="absolute inset-0 opacity-70 transition duration-300 will-change-transform"
           style={{
             background: `radial-gradient(circle at ${spotlight.x}% ${spotlight.y}%, rgba(255,255,255,0.18), transparent 28%)`,
           }}
         />
-        <div className="absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-3xl" />
+        <div className="absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-3xl will-change-transform" />
         <motion.div
           animate={{ x: parallax.x, y: parallax.y }}
           transition={{ type: "spring", stiffness: 60, damping: 16 }}
-          className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:36px_36px] opacity-30"
+          className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:36px_36px] opacity-30 will-change-transform"
         />
       </div>
       <MotionP variants={item} className="mb-5 text-sm uppercase tracking-wide text-zinc-400">
