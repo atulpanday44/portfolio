@@ -19,7 +19,7 @@ function App() {
     <div className="bg-gradient-to-b from-black via-zinc-900 to-black text-white antialiased">
       <ScrollProgress />
       <Navbar />
-      <main className="mx-auto max-w-6xl px-6 pt-24 md:px-10">
+      <main className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-10 pt-24">
         <Hero />
         <About />
         <Suspense fallback={null}>

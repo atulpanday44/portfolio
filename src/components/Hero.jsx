@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useCallback } from "react";
+import { useEffect, useState, useRef, useCallback, memo } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
 const container = {
@@ -12,7 +12,7 @@ const container = {
 };
 
 const item = {
-  hidden: { opacity: 0, y: 24, filter: "blur(6px)" },
+  hidden: { opacity: 0, y: 24, filter: "blur(4px)" },
   show: {
     opacity: 1,
     y: 0,
@@ -88,7 +88,7 @@ function Hero() {
             background: `radial-gradient(circle at ${spotlight.x}% ${spotlight.y}%, rgba(255,255,255,0.18), transparent 28%)`,
           }}
         />
-        <div className="absolute left-1/2 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/10 blur-3xl will-change-transform" />
+        <div className="absolute left-1/2 top-1/2 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/8 blur-3xl will-change-transform" />
         <motion.div
           animate={{ x: parallax.x, y: parallax.y }}
           transition={{ type: "spring", stiffness: 60, damping: 16 }}
@@ -102,7 +102,7 @@ function Hero() {
       </MotionP>
       <MotionH1
         variants={item}
-        className="relative max-w-4xl text-6xl font-extrabold leading-[0.95] tracking-tight text-transparent md:text-7xl"
+        className="relative max-w-4xl text-4xl font-extrabold leading-[0.95] tracking-tight text-transparent sm:text-5xl md:text-6xl lg:text-7xl"
       >
         <span className="absolute inset-0 -z-10 bg-white/15 blur-2xl" />
         <span className="bg-gradient-to-r from-white via-zinc-400 to-white bg-[length:200%_100%] bg-clip-text animate-[shimmer_6s_linear_infinite]">
@@ -165,4 +165,4 @@ function Hero() {
   );
 }
 
-export default Hero;
+export default memo(Hero);

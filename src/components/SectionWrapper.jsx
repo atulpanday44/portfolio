@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 
 const sectionVariant = {
@@ -33,7 +34,7 @@ function SectionWrapper({ id, title, children }) {
   return (
     <MotionSection
       id={id}
-      className="relative py-16 md:py-24"
+      className="relative py-12 sm:py-16 lg:py-24"
       variants={sectionVariant}
       initial="hidden"
       whileInView="show"
@@ -43,7 +44,7 @@ function SectionWrapper({ id, title, children }) {
       {title ? (
         <MotionH2
           variants={contentVariant}
-          className="mb-10 text-3xl font-semibold tracking-tight text-white md:text-4xl"
+          className="mb-10 text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-white"
         >
           {title}
         </MotionH2>
@@ -53,4 +54,4 @@ function SectionWrapper({ id, title, children }) {
   );
 }
 
-export default SectionWrapper;
+export default memo(SectionWrapper);

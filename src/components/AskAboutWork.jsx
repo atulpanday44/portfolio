@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 
@@ -151,4 +151,4 @@ function AskAboutWork() {
   );
 }
 
-export default AskAboutWork;
+export default memo(AskAboutWork);

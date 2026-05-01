@@ -20,8 +20,8 @@ const ProjectCard = memo(function ProjectCard({ project, onOpenCaseStudy }) {
       whileHover={{ rotateX: 2, rotateY: -2, y: -8, scale: 1.01 }}
       whileTap={{ scale: 0.995 }}
       transition={{ type: "spring", stiffness: 230, damping: 18 }}
-      className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-white/8 to-white/5 p-6 shadow-lg shadow-white/5 backdrop-blur-lg transition duration-300 hover:border-white/25 hover:shadow-xl hover:shadow-white/10 ${
-        project.featured ? "md:col-span-2 md:p-8" : ""
+      className={`group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/15 bg-gradient-to-br from-white/8 to-white/5 p-5 sm:p-6 shadow-lg shadow-white/5 backdrop-blur-lg transition duration-300 hover:border-white/25 hover:shadow-xl hover:shadow-white/10 ${
+        project.featured ? "md:col-span-2 md:p-7 lg:p-8" : ""
       }`}
     >
       <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-br from-white/0 via-white/0 to-white/0 opacity-0 transition duration-300 group-hover:opacity-100 group-hover:from-white/10 group-hover:to-zinc-400/10" />

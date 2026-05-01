@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 
@@ -20,7 +21,7 @@ function Experience() {
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ type: "spring", stiffness: 85, damping: 20 }}
-        className="rounded-2xl border border-white/15 bg-gradient-to-br from-white/10 to-white/5 p-8 shadow-2xl shadow-white/5 backdrop-blur-2xl md:p-10"
+        className="rounded-2xl border border-white/15 bg-gradient-to-br from-white/10 to-white/5 p-6 sm:p-8 lg:p-10 shadow-2xl shadow-white/5 backdrop-blur-2xl"
       >
         <div className="flex flex-col justify-between gap-2 border-b border-white/10 pb-6 md:flex-row md:items-start">
           <MotionDiv
@@ -29,7 +30,7 @@ function Experience() {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
           >
-            <h3 className="text-3xl md:text-4xl font-extrabold text-white">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white">
               AiDash - SDET Intern
             </h3>
             <p className="mt-2 text-sm text-zinc-400">Quality Assurance & Test Automation</p>
@@ -102,4 +103,4 @@ function Experience() {
   );
 }
 
-export default Experience;
+export default memo(Experience);

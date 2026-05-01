@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 
@@ -146,4 +147,4 @@ function ImpactExperience() {
   );
 }
 
-export default ImpactExperience;
+export default memo(ImpactExperience);

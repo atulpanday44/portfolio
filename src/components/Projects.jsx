@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 import ProjectCard from "./ProjectCard";
@@ -36,4 +36,4 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default memo(Projects);

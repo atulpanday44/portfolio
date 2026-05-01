@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, memo } from "react";
 import SectionWrapper from "./SectionWrapper";
 
 const systems = [
@@ -156,4 +156,4 @@ function SystemDesign() {
   );
 }
 
-export default SystemDesign;
+export default memo(SystemDesign);

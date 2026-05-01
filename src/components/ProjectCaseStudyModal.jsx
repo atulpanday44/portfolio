@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaTimes } from "react-icons/fa";
 
@@ -20,7 +21,7 @@ function ProjectCaseStudyModal({ project, onClose }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.96 }}
             transition={{ type: "spring", stiffness: 180, damping: 22 }}
-            className="max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-3xl border border-white/20 bg-gradient-to-b from-zinc-950 to-black p-8 shadow-2xl shadow-white/10 md:p-12"
+            className="max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-3xl border border-white/20 bg-gradient-to-b from-zinc-950 to-black p-6 sm:p-8 lg:p-12 shadow-2xl shadow-white/10"
             onClick={(event) => event.stopPropagation()}
           >
             {/* Header */}
@@ -30,7 +31,7 @@ function ProjectCaseStudyModal({ project, onClose }) {
                 animate={{ opacity: 1, y: 0 }}
               >
                 <p className="text-xs uppercase tracking-widest text-zinc-500 font-bold">Case Study</p>
-                <h3 className="mt-2 text-4xl font-extrabold text-white">{project.title}</h3>
+                <h3 className="mt-2 text-2xl sm:text-3xl md:text-4xl font-extrabold text-white">{project.title}</h3>
               </MotionDiv>
               <MotionButton
                 type="button"
@@ -233,4 +234,4 @@ function ProjectCaseStudyModal({ project, onClose }) {
   );
 }
 
-export default ProjectCaseStudyModal;
+export default memo(ProjectCaseStudyModal);

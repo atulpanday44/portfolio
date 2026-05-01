@@ -1,9 +1,10 @@
+import { memo } from "react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 function Footer() {
   return (
     <footer className="border-t border-white/10 py-8">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 text-zinc-400 md:flex-row md:px-10">
+      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-4 sm:px-6 lg:px-10 text-zinc-400 md:flex-row">
         <p className="text-sm">Atul Panday &copy; 2026</p>
         <div className="flex items-center gap-4 text-lg">
           <a
@@ -30,4 +31,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default memo(Footer);

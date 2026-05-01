@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { motion } from "framer-motion";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa";
 import SectionWrapper from "./SectionWrapper";
@@ -48,7 +48,7 @@ function Contact() {
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ type: "spring", stiffness: 85, damping: 20 }}
-        className="groups relative mx-auto max-w-3xl rounded-3xl border border-white/15 bg-gradient-to-br from-white/10 to-white/5 p-8 text-center shadow-2xl shadow-white/10 backdrop-blur-2xl md:p-12"
+        className="groups relative mx-auto max-w-3xl rounded-3xl border border-white/15 bg-gradient-to-br from-white/10 to-white/5 p-6 sm:p-8 lg:p-12 text-center shadow-2xl shadow-white/10 backdrop-blur-2xl"
       >
         {/* Glow effect on hover */}
         <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -159,4 +159,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default memo(Contact);

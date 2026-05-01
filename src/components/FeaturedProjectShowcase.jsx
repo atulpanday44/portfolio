@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import projects from "../data/projects";
@@ -32,7 +33,7 @@ function FeaturedProjectShowcase({ onOpenCaseStudy }) {
       whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ type: "spring", stiffness: 85, damping: 20 }}
-      className="group relative mb-12 overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-white/8 to-white/5 p-8 shadow-2xl shadow-white/5 backdrop-blur-2xl md:p-12"
+      className="group relative mb-12 overflow-hidden rounded-3xl border border-white/20 bg-gradient-to-br from-white/8 to-white/5 p-6 sm:p-8 lg:p-12 shadow-2xl shadow-white/5 backdrop-blur-2xl"
       whileHover={{ borderColor: "rgba(255,255,255,0.3)", boxShadow: "0 20px 60px rgba(255,255,255,0.08)" }}
     >
       {/* Glow effect on hover */}
@@ -60,7 +61,7 @@ function FeaturedProjectShowcase({ onOpenCaseStudy }) {
         viewport={{ once: true }}
         transition={{ delay: 0.1 }}
       >
-        <h3 className="text-4xl font-extrabold text-white md:text-5xl">{featured.title}</h3>
+        <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white">{featured.title}</h3>
         <p className="mt-4 text-lg text-zinc-300 leading-relaxed max-w-3xl">
           {featured.description}
         </p>
@@ -189,4 +190,4 @@ function FeaturedProjectShowcase({ onOpenCaseStudy }) {
   );
 }
 
-export default FeaturedProjectShowcase;
+export default memo(FeaturedProjectShowcase);

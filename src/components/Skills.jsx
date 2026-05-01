@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 
@@ -93,4 +94,4 @@ function Skills() {
   );
 }
 
-export default Skills;
+export default memo(Skills);

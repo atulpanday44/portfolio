@@ -66,33 +66,35 @@ const projects = [
     },
   },
   {
-    title: "AI Incident Management System",
+    title: "AI-Powered Incident Management System",
     description:
-      "AI-powered system for incident classification, severity prediction, and automated resolution suggestions.",
-    tech: ["Python", "ML", "FastAPI"],
-    github: "",
+      "AI-powered system for real-time log ingestion, anomaly detection, incident classification, and automated resolution suggestions using distributed architecture.",
+    tech: ["Python", "FastAPI", "Apache Kafka", "PostgreSQL", "Docker"],
+    github: "https://github.com/atulpanday44/AI-Powered-Incident-Management-System",
     demo: "",
     architecture: "",
     featured: false,
     caseStudy: {
       problem:
-        "Incident triage is often slow, noisy, and inconsistent under high event volumes.",
+        "Manual incident detection and triage is slow, noisy, and inconsistent under high event volumes. Critical issues are buried in logs and require manual analysis.",
       architecture:
-        "FastAPI-based inference service with ML classifiers, async processing layer, and API integrations for incident systems.",
+        "Distributed architecture with Kafka for log streaming, FastAPI inference service for ML-based classification, PostgreSQL for persistent incident storage, and containerized deployment with Docker.",
       features: [
-        "Automated incident severity classification",
-        "Suggested remediation actions based on historical patterns",
-        "Priority-aware routing for response teams",
+        "Real-time log ingestion and streaming via Apache Kafka",
+        "AI-powered anomaly detection and incident classification",
+        "Automated resolution suggestions based on historical patterns",
+        "Priority-aware incident routing and escalation",
       ],
       decisions: [
-        "Used Python ecosystem for rapid ML experimentation and deployment",
-        "Chose FastAPI for low-latency async APIs and clean schema validation",
-        "Designed modular pipeline to swap models without API rewrites",
+        "Used Python + FastAPI for rapid ML model deployment with async request handling",
+        "Selected Apache Kafka for reliable, scalable event streaming at high throughput",
+        "Chose PostgreSQL for transactional consistency and complex incident querying",
+        "Containerized with Docker for reproducible distributed deployments",
       ],
       challenges:
-        "Balancing model accuracy with low-latency inference requirements.",
+        "Handling high-volume log streams while maintaining sub-second classification latency. Balancing model accuracy against false positives in anomaly detection.",
       scaling:
-        "Supports horizontal API workers and asynchronous task queues for bursty incident loads.",
+        "Kafka partitions for parallel log processing, horizontal FastAPI replicas for inference, and read replicas on PostgreSQL for query scaling.",
       crmDetails: [],
     },
   },

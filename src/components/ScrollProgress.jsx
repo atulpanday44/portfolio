@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 import { motion, useMotionValueEvent, useScroll, useSpring } from "framer-motion";
 
 function ScrollProgress() {
@@ -28,4 +28,4 @@ function ScrollProgress() {
   );
 }
 
-export default ScrollProgress;
+export default memo(ScrollProgress);

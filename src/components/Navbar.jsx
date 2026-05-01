@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, memo } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import Logo from "./Logo";
@@ -41,7 +41,7 @@ function Navbar() {
         isSolid ? "border-white/10 bg-black/80" : "border-transparent bg-black/30"
       }`}
     >
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 md:px-10">
+      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-10">
         <a href="#hero" className="group">
           <Logo />
         </a>
@@ -88,4 +88,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default memo(Navbar);

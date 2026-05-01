@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 
 function Logo() {
@@ -30,4 +31,4 @@ function Logo() {
   );
 }
 
-export default Logo;
+export default memo(Logo);

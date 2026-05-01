@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
 
@@ -11,7 +12,7 @@ function About() {
         whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ type: "spring", stiffness: 85, damping: 20 }}
-        className="max-w-4xl rounded-2xl border border-white/15 bg-gradient-to-br from-white/10 to-white/5 p-8 shadow-2xl shadow-white/5 backdrop-blur-2xl md:p-10"
+        className="max-w-4xl rounded-2xl border border-white/15 bg-gradient-to-br from-white/10 to-white/5 p-6 sm:p-8 lg:p-10 shadow-2xl shadow-white/5 backdrop-blur-2xl"
       >
         <p className="text-base leading-8 text-zinc-300 md:text-lg">
           I am a backend-focused engineer specializing in building reliable and scalable systems
@@ -61,4 +62,4 @@ function About() {
   );
 }
 
-export default About;
+export default memo(About);
